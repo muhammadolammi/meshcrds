@@ -4,6 +4,13 @@ metadata:
   name: backups.stable.example.com
 spec:
   group: stable.example.com
+  scope: Namespaced
+  names:
+    plural: backups
+    singular: backup
+    kind: Backup
+    shortNames:
+    - bk
   versions:
     - name: v1
       served: true
@@ -14,11 +21,7 @@ spec:
           properties:
             spec:
               type: object
+              x-kubernetes-preserve-unknown-fields: true
               properties:
                 schedule:
                   type: string
-  scope: Namespaced
-  names:
-    plural: backups
-    singular: backup
-    kind: Backup
